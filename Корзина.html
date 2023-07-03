@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="themes/theme1.css" />
+	<link rel="stylesheet" type="text/css" href="wicart.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" ></script>
+	<!-- WI-JQ-HEADER -->
+	<script src="wicart.js"  type="text/javascript" ></script>
+	<!-- WI-HEADER -->
+	
+	
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/ico">
+    <title>MyPatCat</title>
+    <style>
+        hr {
+         border: none; /* Убираем границу */
+         background-color: rgb(255, 123, 0); /* Цвет линии */
+         color: black; /* Цвет линии для IE6-7 */
+         height: 3px; /* Толщина линии */
+        }
+        button {
+        border: 3px solid rgb(0, 0, 0); /* Параметры рамки */
+        background: #ffffff; /* Цвет фона */
+        font-size: 35px; /* Размер текста */
+        padding: 2px 15px; /* Поля вокруг текста */
+        font-family: cursive
+        }
+        
+        .v {justify-content: flex; border:1px solid #999; border-radius: 5px;padding: 10px;margin-bottom: 10px; width: 340px;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-imgizm">
+        <a href="index1.html"><img src="img/logo.png" hspace="0"></a>
+        </div>
+        <strong><h1>My PatCat.ru</h1><br></strong>
+        <h2>Зоомагазин<br><input type="search" name="q" placeholder="Поиск по сайту"><br>
+            <input type="submit" value="Поиск"></h2>
+       
+        <strong><p><a href="2.html">Вход</a> |
+        <a href="3.html">Регистрация</a></p></strong>
+            <div class="header-imgizm1">
+            <a href="3.html"><img src="img/user.png" hspace="0" style="margin-top: 40px;margin-left: 30px"></a>
+            <a href="Корзина.html"><img src="img/cart.png" hspace="0" style="margin-left: 30px;margin-top: 40px"></a>
+            </div>
+    
+    </div>
+    <div class="menu">
+        <ul>
+            <button><a href="index1.html">Главная</a></li></button>
+            <button><a href="Каталог.html">Каталог</a></li></button>
+            <button><a href="Cat.html">Кошки/Коты</a></li></button>  
+            <button><a href="Dog.html">Собаки</a></li></button>
+            <button><a href="Контакты.html">Контакты</a></li></button>
+            <button><a href="О нас.html">О нас</a></li></button>      
+            
+        </ul>
+    </div>
+    
+    <div class="main">
+        <script>
+            var priceList = {
+                "001" : {"id" : "001", "subid" : {}, "name" : "Royal Canin British Shorthair Adult", "price" : "2300"},
+                "002" : {"id" : "002", "subid" : {}, "name" : "Royal Canin Maxi Adult Heavy Dog", "price" : "6200"}
+                };
+            </script>	
+            <strong><h1>Список</h1></strong>
+            
+            <div class="cart">
+            <div class="price"><a href="#" id="basketwidjet" onclick="cart.showWinow('bcontainer', 1)"></a></div>
+            
+            <div style="text-align: center"><a href="#!" onclick="cart.clearBasket()">Очистить корзину</a></div>
+            </div>
+            <!-- WI-BASKET -->
+            <br>
+        <div class="cards-cart">
+            <div class="v">
+                <h2>Royal Canin British Shorthair Adult</h2>
+            <div><img class="im" src="img/корм2.jpg" /></div>
+            Цена: <span class="wicartprice" id="wicartprice_001"><strong>2300</span> Руб.</strong></p>
+            <!-- WI-VETRINE[001] -->	
+            <button id="wicartbutton_001" onclick="cart.addToCart(this, '001', priceList['001'])">Оформить</button>
+            
+            </div>
+            
+            <div class="v">
+                <h2>Royal Canin Maxi Adult Heavy Dog</h2>
+            <div><img class="im" src="img/корм6.jpg" /></div>
+            Цена: <span class="wicartprice" id="wicartprice_002"><strong>6200</span> Руб.</strong></p>
+            <!-- WI-VETRINE[002] -->	
+            <button id="wicartbutton_002" onclick="cart.addToCart(this, '002', priceList['002'])">Оформить</button>
+            </div>
+        </div>    
+            <!---Форма для магазина-------------------------------->
+            <div id="order" class="popup">
+            <a href="#" onclick="cart.closeWindow('order', 0)" style="float:right">[закрыть]</a>
+            <h4>Введите ваши контактные данные</h4>
+            
+            <form id="formToSend">
+            <input id="fio" type="text" placeholder="Ваши фамилия и имя"  class="" />
+            <input id="city" type="text" placeholder="Город"  class="text-input"/>
+            <input id="phone" type="text" placeholder="Контактный телефон" class="text-input"/>
+            <input id="email" type="text" placeholder="Электронная почта" class="" />
+            <br>
+            <textarea id="question" placeholder="Адрес"></textarea>
+            <br>
+            <b>Доставка:</b>
+            <br>
+            <select id="delivery">
+            <option value="-">-</option>
+            <option value="Почта РФ">Почта РФ</option>
+            <option value="EMS">EMS</option>
+            <option value="DHL">DHL</option>
+            <option value="TNT">TNT</option>
+            </select>
+            <br>
+            <input type="checkbox" value="V"> Предоплата
+            </form>
+            <button onclick="cart.sendOrder('formToSend,overflw,bsum');" href="#">Отправить заказ</button>
+            </div>
+            <!----------------------------------------------------->
+            
+            
+            <script>
+            var cart;
+            var config;
+            var wiNumInputPrefID;
+            /* WI-GLOBAL-VARS */
+            $(document).ready(function(){  
+                cart = new WICard("cart");
+                config = {'clearAfterSend':true, 'showAfterAdd':false};
+                
+                cart.init("basketwidjet", config);
+                /* WI-MODULES */
+                
+                
+            });	
+            document.addEventListener('visibilitychange', function(e) {
+            cart.init("basketwidjet", config);
+            }, false);
+            </script>   
+    </div>
+    <div class="footer">
+    <h4><strong>copyright © Кольцов Роман, MyPatCat.ru 2023</strong></h4>
+    </div>
+</body>
+</html>

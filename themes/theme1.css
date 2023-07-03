@@ -1,0 +1,27 @@
+h1
+{
+color: #004080;
+font: bold 20px Arial;
+}
+.cart
+{
+width:100%;
+height: auto;
+margin-top: auto;
+border: 3px solid #004080;
+border-radius: 100px;
+padding: 10px;
+font: normal 11px Arial;
+display: grid;
+justify-content: center;
+
+}
+.price
+{
+margin: 10px;
+font: normal 16px Arial;
+border-radius: 5px;
+background: #F0F0F0;
+text-align: center;
+padding: 8px;
+}
